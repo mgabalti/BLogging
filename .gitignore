@@ -1,0 +1,13 @@
+# Ignore build output
+.next/
+out/
+
+# Node dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Env files
+.env
+.env.local

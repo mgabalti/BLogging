@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Admin-specific styles */
+@layer base {
+  html {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    @apply bg-gray-50;
+  }
+}
+
+@layer components {
+  /* Admin button styles */
+  .admin-btn-primary {
+    @apply inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 rounded-lg transition-colors shadow-sm;
+  }
+  
+  .admin-btn-secondary {
+    @apply inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 rounded-lg transition-colors;
+  }
+  
+  /* Admin card styles */
+  .admin-card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200;
+  }
+  
+  .admin-card-header {
+    @apply px-6 py-4 border-b border-gray-200 bg-gray-50 rounded-t-lg;
+  }
+  
+  .admin-card-body {
+    @apply p-6;
+  }
+  
+  /* Admin table styles */
+  .admin-table {
+    @apply min-w-full divide-y divide-gray-200;
+  }
+  
+  .admin-table-header {
+    @apply bg-gray-50;
+  }
+  
+  .admin-table-header th {
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+  }
+  
+  .admin-table-body {
+    @apply bg-white divide-y divide-gray-200;
+  }
+  
+  .admin-table-row {
+    @apply hover:bg-gray-50;
+  }
+  
+  .admin-table-cell {
+    @apply px-6 py-4 whitespace-nowrap;
+  }
+  
+  /* Admin sidebar styles */
+  .admin-sidebar {
+    @apply flex-1 flex flex-col min-h-0 bg-white border-r border-gray-200 shadow-sm;
+  }
+  
+  .admin-sidebar-nav {
+    @apply mt-6 flex-1 px-3 space-y-1;
+  }
+  
+  .admin-sidebar-link {
+    @apply group flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors border border-transparent hover:border-blue-100;
+  }
+  
+  .admin-sidebar-icon {
+    @apply mr-3 h-5 w-5 flex-shrink-0 text-gray-500 group-hover:text-blue-500;
+  }
+}
+
+@layer utilities {
+  /* Custom utilities for admin panel */
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
