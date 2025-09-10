@@ -1,8 +1,10 @@
 'use client';
 
-import { Twitter, Facebook, Linkedin, Bookmark } from 'lucide-react';
+import { Twitter, Facebook, Linkedin, Bookmark,  } from 'lucide-react';
 import { useState } from 'react';
-
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import XIcon from '@mui/icons-material/X';
+import { IconButton } from '@mui/material';
 interface SocialShareProps {
   className?: string;
 }
@@ -35,30 +37,30 @@ const SocialShare = ({ className = '' }: SocialShareProps) => {
 
   return (
     <div className={`flex flex-col space-y-3 ${className}`}>
-      <button
+      <IconButton
         onClick={shareOnTwitter}
-        className="bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+        className="bg-white w-12 h-12 flex items-cente justify-center dark:bg-gray-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
       >
-        <Twitter className="w-5 h-5 text-gray-600 group-hover:text-blue-500" />
-      </button>
-      <button
+        <XIcon style={{width:'19px'}} className="w-5 h-5 text-gray-600  dark:group-hover:text-blue-300 dark:text-white  group-hover:text-blue-500" />
+      </IconButton>
+      <IconButton
         onClick={shareOnFacebook}
-        className="bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+        className="bg-white w-12 h-12 flex items-cente justify-center dark:bg-gray-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
       >
-        <Facebook className="w-5 h-5 text-gray-600 group-hover:text-blue-600" />
-      </button>
-      <button
+        <Facebook style={{width:'19px'}} className="=  dark:group-hover:text-blue-300 dark:text-white dark:bg-gray-700 text-gray-600 group-hover:text-blue-600" />
+      </IconButton>
+      <IconButton
         onClick={shareOnLinkedIn}
-        className="bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+        className="bg-white w-12 h-12 flex items-cente justify-center dark:bg-gray-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
       >
-        <Linkedin className="w-5 h-5 text-gray-600 group-hover:text-blue-700" />
-      </button>
-      <button
+        <Linkedin style={{width:'19px'}} className=" dark:group-hover:text-blue-300 dark:text-white text-gray-600 group-hover:text-blue-700" />
+      </IconButton>
+      <IconButton
         onClick={toggleBookmark}
-        className="bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+        className="bg-white w-12 h-12 flex items-cente justify-center dark:bg-gray-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
       >
-        <Bookmark className={`w-5 h-5 transition-colors ${isBookmarked ? 'text-primary fill-current' : 'text-gray-600 group-hover:text-primary'}`} />
-      </button>
+        <Bookmark style={{width:'19px'}} className={`  dark:group-hover:text-blue-300 dark:text-white transition-colors ${isBookmarked ? 'text-primary fill-current' : 'text-gray-600 group-hover:text-primary'}`} />
+      </IconButton>
     </div>
   );
 };

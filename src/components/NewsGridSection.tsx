@@ -132,11 +132,11 @@ const NewsGridSection = () => {
   }, [isMediumHovered, mediumNews.length]);
 
   return (
-    <section className="py-8 bg-gray-50">
+    <section className="py-8 bg-gray-50 dark:bg-gray-900">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-12 gap-4 h-[600px]">
           {/* Main Featured News - Left Side */}
-          <div 
+          <div
             className="col-span-12 lg:col-span-7 relative overflow-hidden rounded-lg"
             onMouseEnter={() => setIsMainHovered(true)}
             onMouseLeave={() => setIsMainHovered(false)}
@@ -145,13 +145,12 @@ const NewsGridSection = () => {
               {mainNews.map((news, index) => (
                 <Link key={index} href="/article">
                   <div
-                    className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out cursor-pointer ${
-                      index === mainSlide 
-                        ? 'translate-x-0 opacity-100' 
+                    className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out cursor-pointer ${index === mainSlide
+                        ? 'translate-x-0 opacity-100'
                         : index === (mainSlide - 1 + mainNews.length) % mainNews.length
                           ? '-translate-x-full opacity-0'
                           : 'translate-x-full opacity-0'
-                    }`}
+                      }`}
                     style={{
                       backgroundImage: `url('${news.imageUrl}')`
                     }}
@@ -174,16 +173,15 @@ const NewsGridSection = () => {
                 </Link>
               ))}
             </div>
-            
+
             {/* Main carousel indicators */}
             <div className="absolute bottom-4 left-6 flex space-x-2 z-20">
               {mainNews.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setMainSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === mainSlide ? 'bg-white' : 'bg-white/40'
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${index === mainSlide ? 'bg-white' : 'bg-white/40'
+                    }`}
                 />
               ))}
             </div>
@@ -194,7 +192,7 @@ const NewsGridSection = () => {
             {/* Top Two Small News */}
             <div className="grid grid-cols-2 gap-4 h-1/2">
               {/* Top Small News 1 */}
-              <div 
+              <div
                 className="relative overflow-hidden rounded-lg"
                 onMouseEnter={() => setIsTopSmallHovered(true)}
                 onMouseLeave={() => setIsTopSmallHovered(false)}
@@ -203,13 +201,12 @@ const NewsGridSection = () => {
                   {topSmallNews.map((news, index) => (
                     <Link key={index} href="/article">
                       <div
-                        className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out cursor-pointer ${
-                          index === topSmallSlide 
-                            ? 'translate-x-0 opacity-100' 
+                        className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out cursor-pointer ${index === topSmallSlide
+                            ? 'translate-x-0 opacity-100'
                             : index === (topSmallSlide - 1 + topSmallNews.length) % topSmallNews.length
                               ? '-translate-x-full opacity-0'
                               : 'translate-x-full opacity-0'
-                        }`}
+                          }`}
                         style={{
                           backgroundImage: `url('${news.imageUrl}')`
                         }}
@@ -224,22 +221,21 @@ const NewsGridSection = () => {
                     </Link>
                   ))}
                 </div>
-                
+
                 {/* Top small carousel indicators */}
                 <div className="absolute bottom-2 left-4 flex space-x-1 z-20">
                   {topSmallNews.map((_, index) => (
                     <div
                       key={index}
-                      className={`w-1 h-1 rounded-full transition-all duration-300 ${
-                        index === topSmallSlide ? 'bg-white' : 'bg-white/40'
-                      }`}
+                      className={`w-1 h-1 rounded-full transition-all duration-300 ${index === topSmallSlide ? 'bg-white' : 'bg-white/40'
+                        }`}
                     />
                   ))}
                 </div>
               </div>
 
               {/* Top Small News 2 - Yellow/Political */}
-              <div 
+              <div
                 className="relative overflow-hidden rounded-lg"
                 onMouseEnter={() => setIsBottomSmallHovered(true)}
                 onMouseLeave={() => setIsBottomSmallHovered(false)}
@@ -248,13 +244,12 @@ const NewsGridSection = () => {
                   {bottomSmallNews.map((news, index) => (
                     <Link key={index} href="/article">
                       <div
-                        className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out cursor-pointer ${
-                          index === bottomSmallSlide 
-                            ? 'translate-x-0 opacity-100' 
+                        className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out cursor-pointer ${index === bottomSmallSlide
+                            ? 'translate-x-0 opacity-100'
                             : index === (bottomSmallSlide - 1 + bottomSmallNews.length) % bottomSmallNews.length
                               ? '-translate-x-full opacity-0'
                               : 'translate-x-full opacity-0'
-                        }`}
+                          }`}
                         style={{
                           backgroundImage: `url('${news.imageUrl}')`
                         }}
@@ -269,15 +264,14 @@ const NewsGridSection = () => {
                     </Link>
                   ))}
                 </div>
-                
+
                 {/* Bottom small carousel indicators */}
                 <div className="absolute bottom-2 left-4 flex space-x-1 z-20">
                   {bottomSmallNews.map((_, index) => (
                     <div
                       key={index}
-                      className={`w-1 h-1 rounded-full transition-all duration-300 ${
-                        index === bottomSmallSlide ? 'bg-white' : 'bg-white/40'
-                      }`}
+                      className={`w-1 h-1 rounded-full transition-all duration-300 ${index === bottomSmallSlide ? 'bg-white' : 'bg-white/40'
+                        }`}
                     />
                   ))}
                 </div>
@@ -285,7 +279,7 @@ const NewsGridSection = () => {
             </div>
 
             {/* Bottom Medium News */}
-            <div 
+            <div
               className="h-1/2 relative overflow-hidden rounded-lg"
               onMouseEnter={() => setIsMediumHovered(true)}
               onMouseLeave={() => setIsMediumHovered(false)}
@@ -294,13 +288,12 @@ const NewsGridSection = () => {
                 {mediumNews.map((news, index) => (
                   <Link key={index} href="/article">
                     <div
-                      className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out cursor-pointer ${
-                        index === mediumSlide 
-                          ? 'translate-x-0 opacity-100' 
+                      className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out cursor-pointer ${index === mediumSlide
+                          ? 'translate-x-0 opacity-100'
                           : index === (mediumSlide - 1 + mediumNews.length) % mediumNews.length
                             ? '-translate-x-full opacity-0'
                             : 'translate-x-full opacity-0'
-                      }`}
+                        }`}
                       style={{
                         backgroundImage: `url('${news.imageUrl}')`
                       }}
@@ -315,16 +308,15 @@ const NewsGridSection = () => {
                   </Link>
                 ))}
               </div>
-              
+
               {/* Medium carousel indicators */}
               <div className="absolute bottom-4 left-6 flex space-x-2 z-20">
                 {mediumNews.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setMediumSlide(index)}
-                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                      index === mediumSlide ? 'bg-white' : 'bg-white/40'
-                    }`}
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${index === mediumSlide ? 'bg-white' : 'bg-white/40'
+                      }`}
                   />
                 ))}
               </div>

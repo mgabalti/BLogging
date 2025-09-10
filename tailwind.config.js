@@ -5,6 +5,7 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class', // Enable class-based dark mode
   theme: {
     extend: {
       colors: {
@@ -43,6 +44,20 @@ module.exports = {
               color: '#3b82f6',
               '&:hover': {
                 color: '#1d4ed8',
+              },
+            },
+          },
+        },
+        dark: {
+          css: {
+            color: '#d1d5db',
+            '[class~="lead"]': {
+              color: '#9ca3af',
+            },
+            a: {
+              color: '#60a5fa',
+              '&:hover': {
+                color: '#93c5fd',
               },
             },
           },

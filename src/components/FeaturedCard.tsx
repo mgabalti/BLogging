@@ -23,9 +23,9 @@ const FeaturedCard = ({
   slug = '/article'
 }: FeaturedCardProps) => {
   const sizeClasses = {
-    small: 'flex space-x-4 bg-white p-4 rounded-lg ',
-    medium: 'bg-white p-6 rounded-lg ',
-    large: 'bg-white p-8 rounded-lg '
+    small: 'flex space-x-4 bg-white dark:bg-gray-800 p-4 rounded-lg ',
+    medium: 'bg-white dark:bg-gray-800  p-6 rounded-lg ',
+    large: 'bg-white  dark:bg-gray-800 p-8 rounded-lg '
   };
 
   const imageClasses = {
@@ -40,13 +40,13 @@ const FeaturedCard = ({
         <article className={`${sizeClasses[size]}  cursor-pointer`}>
         <div className={imageClasses[size]} style={{ backgroundImage: `url(${imageUrl})` }}></div>
         <div className="flex-1">
-          <h4 className="font-playfair font-semibold text-gray-900 mb-2">
+          <h4 className="font-playfair font-semibold dark:text-white text-gray-900 mb-2">
             {title}
           </h4>
-          <p className="text-xs text-gray-600 mb-2">
+          <p className="text-xs dark:text-gray-300 text-gray-600 mb-2 dark">
             {excerpt}
           </p>
-          <div className="flex items-center space-x-3 text-xs text-gray-500">
+          <div className="flex items-center space-x-3 text-xs text-gray-500  dark:text-gray-400">
             <div className="flex items-center space-x-1">
               <User className="w-3 h-3" />
               <span><small>{author}</small></span>
@@ -67,13 +67,13 @@ const FeaturedCard = ({
     <Link href={slug}>
       <article className={`${sizeClasses[size]}  cursor-pointer`}>
       <div className={imageClasses[size]} style={{ backgroundImage: `url(${imageUrl})` }}></div>
-      <h3 className={`${size === 'large' ? 'text-xl' : 'text-lg'} font-playfair font-bold text-gray-900 mb-4 leading-tight`}>
+      <h3 className={`${size === 'large' ? 'text-xl' : 'text-lg'}  dark:text-gray-100 font-playfair font-bold text-gray-900 mb-4 leading-tight`}>
         {title}
       </h3>
-      <p className="text-gray-600 mb-6 leading-relaxed text-xs">
+      <p className="text-gray-600 mb-6 leading-relaxed text-xs  dark:text-gray-300">
         {excerpt}
       </p>
-      <div className="flex items-center space-x-4 text-xs text-gray-500">
+      <div className="flex items-center space-x-4 text-xs text-gray-500  dark:text-gray-400">
         <div className="flex items-center space-x-1">
           <User className="w-3 h-3" />
           <span><small>{author}</small></span>

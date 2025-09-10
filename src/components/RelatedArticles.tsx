@@ -37,9 +37,9 @@ export default function RelatedArticles() {
   ];
 
   return (
-    <section className="bg-gray-50 py-16">
+    <section className=" py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-playfair font-bold text-gray-900 mb-12 text-center">
+        <h2 className="text-3xl font-playfair font-bold text-gray-900 dark:text-white mb-12 text-center">
           Related Articles
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
@@ -47,26 +47,26 @@ export default function RelatedArticles() {
             <Link
               key={article.id}
               href="/article"
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
             >
               <div
                 className="relative h-48 bg-cover bg-center"
                 style={{ backgroundImage: `url(${article.image})` }}
               >
                 <div className="absolute top-4 left-4">
-                  <span className={`${article.categoryColor} text-white px-2 py-1 text-xs font-medium uppercase tracking-wide rounded`}>
+                  <span className={`${article.categoryColor} text-white  px-2 py-1 text-xs font-medium uppercase tracking-wide rounded`}>
                     {article.category}
                   </span>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-playfair font-semibold text-gray-900 mb-3 leading-tight">
+              <div className="p-6 flex flex-col">
+                <h3 className="text-xl font-playfair font-semibold text-gray-900 dark:text-gray-100 mb-3 leading-tight">
                   {article.title}
                 </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-gray-600 mb-4 flex-grow-1 dark:text-gray-400 leading-relaxed">
                   {article.excerpt}
                 </p>
-                <div className="flex items-center justify-between text-sm text-gray-500">
+                <div className="flex items-center justify-between text-sm text-gray-500 dark:">
                   <span>{article.author}</span>
                   <span>{article.readTime}</span>
                 </div>

@@ -4,19 +4,23 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://localhost:49957
 export interface CreatePostRequest {
   title: string;
   content: string;
+  excerpt?: string;
   categoryId: string; // Guid
   tagIds: string[]; // Guid[]
   isPublished: boolean;
   featuredImageId?: string; // Guid
+  authorId: string; // Guid
 }
 
 export interface UpdatePostRequest {
   title: string;
   content: string;
+  excerpt?: string;
   categoryId: string; // Guid
   tagIds: string[]; // Guid[]
   isPublished: boolean;
   featuredImageId?: string; // Guid
+  authorId: string; // Guid
 }
 
 export interface PostDto {
@@ -100,7 +104,7 @@ export interface ApiResponse<T> {
 
 class ApiService {
   private getAuthHeaders(): Record<string, string> {
-    const token = typeof window !== 'undefined' ? localStorage.getItem('auth-token') : null;
+    const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
     return token ? { 'Authorization': `Bearer ${token}` } : {};
   }
 

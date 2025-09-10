@@ -34,10 +34,10 @@ const SportsSection = () => {
   ];
 
   return (
-    <section id="sports" className="py-16 bg-white">
+    <section id="sports" className="py-16 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center mb-12">
-          <h2 className="text-3xl font-playfair font-bold text-gray-900">Sports</h2>
+          <h2 className="text-3xl font-playfair font-bold text-gray-900 dark:text-white">Sports</h2>
           <div className="ml-4 h-px bg-green-600 flex-1"></div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

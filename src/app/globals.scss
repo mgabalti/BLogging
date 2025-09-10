@@ -312,6 +312,11 @@ $gray-dark: #94a3b8;
   font-family: inherit;
 }
 
+.ql-container,
+.ql-editor *{
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
 .ql-toolbar button {
   color: #374151;
   
@@ -341,6 +346,160 @@ $gray-dark: #94a3b8;
   border: 1px solid #d1d5db;
   border-radius: 6px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+// Quill editor container styles
+.quill-editor {
+  .ql-toolbar,
+  .ql-container {
+    transition: all 0.3s ease;
+  }
+
+  &.dark {
+    .ql-toolbar,
+    .ql-container,
+    .ql-editor {
+      background-color: #1f2937 !important;
+      color: #d1d5db !important;
+    }
+  }
+}
+
+// Dark mode styles for ReactQuill
+.dark,
+.quill-editor.dark {
+  .ql-toolbar {
+    border-top: 1px solid #374151;
+    border-left: 1px solid #374151;
+    border-right: 1px solid #374151;
+    border-bottom: none;
+    background-color: #1f2937;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .ql-container {
+    border-bottom: 1px solid #374151;
+    border-left: 1px solid #374151;
+    border-right: 1px solid #374151;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    background-color: #1f2937;
+    color: #d1d5db;
+  }
+
+  .ql-editor {
+    background-color: #1f2937;
+    color: #d1d5db;
+
+    &.ql-blank::before {
+      color: #6b7280;
+    }
+
+    blockquote {
+      border-left: 4px solid #64B5F6;
+      color: #b0b0b0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #ffffff;
+    }
+
+    p {
+      color: #d1d5db;
+    }
+
+    ul, ol {
+      color: #d1d5db;
+    }
+
+    a {
+      color: #64B5F6;
+    }
+
+    code {
+      background-color: #374151;
+      color: #d1d5db;
+    }
+  }
+
+  .ql-toolbar button {
+    color: #d1d5db;
+    
+    &:hover {
+      color: #64B5F6;
+    }
+    
+    &.ql-active {
+      color: #64B5F6;
+    }
+  }
+
+  .ql-toolbar .ql-stroke {
+    stroke: currentColor;
+  }
+
+  .ql-toolbar .ql-fill {
+    fill: currentColor;
+  }
+
+  .ql-toolbar .ql-picker {
+    color: #d1d5db;
+  }
+
+  .ql-toolbar .ql-picker-options {
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  }
+
+  .ql-toolbar .ql-picker-item {
+    color: #d1d5db;
+    
+    &:hover {
+      background-color: #374151;
+    }
+  }
+
+  .ql-toolbar .ql-picker-label {
+    color: #d1d5db;
+  }
+
+  .ql-toolbar .ql-color .ql-picker-options,
+  .ql-toolbar .ql-background .ql-picker-options {
+    background-color: #1f2937;
+    border: 1px solid #374151;
+  }
+
+  .ql-toolbar .ql-color .ql-picker-options .ql-picker-item,
+  .ql-toolbar .ql-background .ql-picker-options .ql-picker-item {
+    border: 1px solid #374151;
+  }
+
+  // Additional toolbar elements
+  .ql-toolbar .ql-formats {
+    color: #d1d5db;
+  }
+
+  .ql-toolbar .ql-separator {
+    border-right: 1px solid #374151;
+  }
+
+  .ql-toolbar .ql-link {
+    color: #d1d5db;
+  }
+
+  .ql-toolbar .ql-image {
+    color: #d1d5db;
+  }
+
+  .ql-toolbar .ql-video {
+    color: #d1d5db;
+  }
+
+  .ql-toolbar .ql-clean {
+    color: #d1d5db;
+  }
 }
 
 // Animation utilities
@@ -425,8 +584,6 @@ $gray-dark: #94a3b8;
 }
 
 .expert-quote {
-  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-  border-left: 4px solid #8BA793;
 }
 
 .back-to-top {
@@ -543,4 +700,160 @@ border-bottom: 1px solid gray !important;
     outline:none !important;
     box-shadow: none !important;
   }
+}
+
+input.css-qve9l1-MuiInputBase-input-MuiOutlinedInput-input,
+input.css-2u11ia-MuiInputBase-input-MuiOutlinedInput-input,
+textarea.MuiInputBase-inputMultiline{
+  &:focus{
+    border: 0px solid transparent !important;
+    box-shadow: none !important;
+  }
+}
+.poppin-inner *{
+  font-family: "Poppins" sans-serif  !important;
+}
+
+input[type='text']:focus,
+input:where(:not([type])):focus,
+input[type='email']:focus,
+input[type='url']:focus,
+input[type='password']:focus,
+input[type='number']:focus,
+input[type='date']:focus,
+input[type='datetime-local']:focus,
+input[type='month']:focus,
+input[type='search']:focus,
+input[type='tel']:focus,
+input[type='time']:focus,
+input[type='week']:focus,
+[multiple]:focus,
+textarea:focus,
+select:focus {
+  box-shadow: none !important;
+}
+
+// Quill custom font families
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Playfair Display"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Playfair Display"]::before {
+  content: 'Playfair Display';
+  font-family: 'Playfair Display', serif;
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Poppins"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Poppins"]::before {
+  content: 'Poppins';
+  font-family: 'Poppins', sans-serif;
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Open Sans"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Open Sans"]::before {
+  content: 'Open Sans';
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value="Pacifico"]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="Pacifico"]::before {
+  content: 'Pacifico';
+  font-family: 'Pacifico', cursive;
+}
+
+// Apply custom fonts to Quill editor content
+.ql-editor {
+  .ql-font-Playfair\\ Display {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .ql-font-Poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .ql-font-Open\\ Sans {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .ql-font-Pacifico {
+    font-family: 'Pacifico', cursive;
+  }
+}
+
+// Dark mode styles
+[data-mui-color-scheme="dark"] {
+  --toast-bg: #1e1e1e;
+  --toast-color: #ffffff;
+  --toast-border: #333333;
+  
+  // Override Tailwind classes for dark mode
+  .bg-white {
+    background-color: #1e1e1e !important;
+  }
+  
+  .text-gray-900 {
+    color: #ffffff !important;
+  }
+  
+  .text-gray-600 {
+    color: #b0b0b0 !important;
+  }
+  
+  .text-gray-500 {
+    color: #999999 !important;
+  }
+  
+  .border-gray-200 {
+    border-color: #333333 !important;
+  }
+  
+  .border-gray-100 {
+    border-color: #2d2d2d !important;
+  }
+  
+  .hover\\:bg-gray-100:hover {
+    background-color: #2d2d2d !important;
+  }
+  
+  .hover\\:text-gray-900:hover {
+    color: #ffffff !important;
+  }
+  
+  .bg-gray-50 {
+    background-color: #111827 !important;
+  }
+  
+  .bg-blue-50 {
+    background-color: #1a365d !important;
+  }
+  
+  .text-blue-900 {
+    color: #90cdf4 !important;
+  }
+  
+  .text-red-600 {
+    color: #f56565 !important;
+  }
+  
+  .bg-red-500 {
+    background-color: #f56565 !important;
+  }
+  
+  .bg-blue-500 {
+    background-color: #4299e1 !important;
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  .border {
+    border-color: #333333 !important;
+  }
+}
+.list-content-ul[contenteditable="true"] {
+  /* Your styles here */
+  outline: none;
+ 
+}
+
+.me-0{
+  margin-right: 0 !important;
 }

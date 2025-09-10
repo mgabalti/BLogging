@@ -2,12 +2,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import ThemeDropdown from '@/components/ThemeDropdown';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-sm border-b border-gray-200">
+    <nav className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -29,6 +30,10 @@ export function Navbar() {
             >
               My Blog
             </Link>
+            
+            {/* Theme Dropdown */}
+            <ThemeDropdown variant="icon" size="small" />
+            
             <div className="relative">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -64,7 +69,9 @@ export function Navbar() {
             </div>
           </div>
 
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Theme Dropdown for Mobile */}
+            <ThemeDropdown variant="icon" size="small" />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 hover:text-gray-900 p-2"

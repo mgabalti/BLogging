@@ -42,14 +42,14 @@ const PoliticsSection = () => {
   ];
 
   return (
-    <section id="politics" className="py-16 bg-gray-50">
+    <section id="politics" className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center mb-12">
-          <h2 className="text-3xl font-playfair font-bold text-gray-900">Politics</h2>
+          <h2 className="text-3xl font-playfair font-bold text-gray-900 dark:text-white ">Politics</h2>
           <div className="ml-4 h-px bg-red-600 flex-1"></div>
         </div>
         <div className="grid lg:grid-cols-2 gap-6">
-          <article className="border-l-4 border-primary relative  bg-white rounded-lg shadow-sm">
+          <article className="border-l-4 border-primary dark:border-gray-700 relative  bg-white  dark:bg-gray-800 rounded-lg shadow-sm">
             <div className="mb-6 absolute top-10 left-10">
               <span className="bg-red-100 text-red-800 px-3 py-1 text-sm font-medium uppercase tracking-wide rounded">
                 Lead Story

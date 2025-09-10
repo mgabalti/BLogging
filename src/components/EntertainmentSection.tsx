@@ -37,10 +37,10 @@ const EntertainmentSection = () => {
   ];
 
   return (
-    <section id="entertainment" className="py-16 bg-gray-50">
+    <section id="entertainment" className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center mb-12">
-          <h2 className="text-3xl font-playfair font-bold text-gray-900">Entertainment</h2>
+          <h2 className="text-3xl font-playfair font-bold text-gray-900 dark:text-white">Entertainment</h2>
           <div className="ml-4 h-px bg-purple-600 flex-1"></div>
         </div>
         <div className="grid lg:grid-cols-2 gap-8">
@@ -68,7 +68,7 @@ const EntertainmentSection = () => {
             {sideStories.map((story, index) => (
               <article
                 key={index}
-                className="bg-white p-3 rounded-lg shadow-sm cursor-pointer"
+                className="bg-white dark:bg-gray-800 p-3 rounded-lg shadow-sm cursor-pointer"
               >
                 <div className="flex  space-x-4">
                   <div
@@ -76,10 +76,10 @@ const EntertainmentSection = () => {
                     style={{ backgroundImage: `url(${story.imageUrl})` }}
                   ></div>
                   <div className="flex-1">
-                    <h4 className="text-base font-playfair font-semibold text-gray-900 mb-2">
+                    <h4 className="text-base font-playfair font-semibold text-gray-900 dark:text-white mb-2">
                       {story.title}
                     </h4>
-                    <p className="text-gray-600 mb-1 text-xs">
+                    <p className="text-gray-600 mb-1 text-xs dark:text-gray-400">
                       {story.excerpt}
                     </p>
                     {story.rating ? (
@@ -92,12 +92,12 @@ const EntertainmentSection = () => {
                             />
                           ))}
                         </div>
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
                           <small>{story.rating}/5 • {story.author}</small>
                         </span>
                       </div>
                     ) : (
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-gray-500 dark:text-gray-400">
                        <small> {story.author} • {story.readTime}</small>
                       </span>
                     )}

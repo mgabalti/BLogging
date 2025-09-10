@@ -33,9 +33,9 @@ const FeaturedStories = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-playfair font-bold text-gray-900 mb-12 text-center">
+        <h2 className="text-3xl font-playfair font-bold text-gray-900 mb-12 text-center dark:text-white">
           Featured Stories
         </h2>
         <div className="grid md:grid-cols-3 gap-5">

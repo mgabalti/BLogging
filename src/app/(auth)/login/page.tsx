@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import {
   Box,
   Typography,
@@ -15,7 +15,6 @@ import {
   Alert,
 } from '@mui/material';
 import {
-  Person as PersonIcon,
   Email as EmailIcon,
   Lock as LockIcon,
   Visibility as VisibilityIcon,
@@ -25,26 +24,20 @@ import { apiService } from '@/services/api';
 import toast from 'react-hot-toast';
 import { useAuth } from '@/hooks/useAuth';
 
-export default function RegisterPage() {
+export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { login } = useAuth();
   const [formData, setFormData] = useState({
-    fullName: '',
     email: '',
-    password: '',
-    confirmPassword: ''
+    password: ''
   });
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
-
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = 'Full name is required';
-    }
 
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
@@ -54,14 +47,6 @@ export default function RegisterPage() {
 
     if (!formData.password) {
       newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
-    }
-
-    if (!formData.confirmPassword) {
-      newErrors.confirmPassword = 'Please confirm your password';
-    } else if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
     }
 
     setErrors(newErrors);
@@ -78,20 +63,19 @@ export default function RegisterPage() {
     setIsLoading(true);
 
     try {
-      const response = await apiService.register({
-        fullName: formData.fullName,
-        email: formData.email,
-        password: formData.password
-      });
-
+      const response = await apiService.login(formData.email, formData.password);
+      
       // Use the auth hook to login
       login(response.token, response.user);
       
-      toast.success('Registration successful! Welcome to the platform.');
-      router.push('/dashboard');
+      toast.success('Login successful!');
+      
+      // Redirect to the intended page or dashboard
+      const redirectTo = searchParams.get('redirect') || '/dashboard';
+      router.push(redirectTo);
     } catch (error) {
-      console.error('Registration error:', error);
-      toast.error('Registration failed. Please try again.');
+      console.error('Login error:', error);
+      toast.error('Login failed. Please check your credentials.');
     } finally {
       setIsLoading(false);
     }
@@ -113,29 +97,13 @@ export default function RegisterPage() {
         {/* Header */}
         <Box sx={{ textAlign: 'center', mb: 4 }}>
           <h1 className='font-bold text-2xl'>
-            Create your account
+            Sign in to your account
           </h1>
         </Box>
 
         {/* Form */}
         <Box component="form" onSubmit={handleSubmit}>
           <Stack spacing={3}>
-            {/* Full Name */}
-            <TextField
-              label="Full Name"
-              name="fullName"
-              type="text"
-              value={formData.fullName}
-              onChange={handleInputChange}
-              fullWidth
-              required
-              error={!!errors.fullName}
-              helperText={errors.fullName}
-              InputProps={{
-                startAdornment: <PersonIcon className='text-gray-400 text-xs w-2' sx={{ mr: 1, }} />,
-              }}
-            />
-
             {/* Email */}
             <TextField
               label="Email Address"
@@ -176,30 +144,6 @@ export default function RegisterPage() {
               }}
             />
 
-            {/* Confirm Password */}
-            <TextField
-              label="Confirm Password"
-              name="confirmPassword"
-              type={showConfirmPassword ? 'text' : 'password'}
-              value={formData.confirmPassword}
-              onChange={handleInputChange}
-              fullWidth
-              required
-              error={!!errors.confirmPassword}
-              helperText={errors.confirmPassword}
-              InputProps={{
-                startAdornment: <LockIcon className='text-gray-400 text-xs w-2' sx={{ mr: 1, }} />,
-                endAdornment: (
-                  <Button
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    sx={{ minWidth: 'auto', p: 0.5 }}
-                  >
-                    {showConfirmPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                  </Button>
-                ),
-              }}
-            />
-
             <Divider />
 
             {/* Submit Button */}
@@ -214,18 +158,18 @@ export default function RegisterPage() {
               {isLoading ? (
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                   <CircularProgress size={20} color="inherit" />
-                  Creating account...
+                  Signing in...
                 </Box>
               ) : (
-                'Create account'
+                'Sign in'
               )}
             </Button>
 
             <div className="text-center">
               <Typography variant="body2" color="text.secondary">
-                Or{' '} <br />
-                <Link href="/login" style={{ color: 'primary.main', textDecoration: 'none' }}>
-                  Login
+                Don't have an account?{' '} <br />
+                <Link href="/register" style={{ color: 'primary.main', textDecoration: 'none' }}>
+                  Register
                 </Link>
               </Typography>
             </div>

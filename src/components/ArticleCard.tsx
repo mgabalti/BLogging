@@ -30,7 +30,7 @@ const ArticleCard = ({
 }: ArticleCardProps) => {
   return (
     <Link href={slug}>
-      <article className="bg-white rounded-lg shadow-lg overflow-hidden hover:transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer">
+      <article className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300 cursor-pointer">
       <div className="relative h-48 bg-cover bg-center" style={{ backgroundImage: `url(${imageUrl})` }}>
         {isLive && (
           <div className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -55,10 +55,10 @@ const ArticleCard = ({
         )}
       </div>
       <div className="p-6">
-        <h3 className="text-lg font-playfair font-semibold text-gray-900 mb-3 leading-tight">
+        <h3 className="text-lg font-playfair font-semibold text-gray-900 dark:text-gray-100 mb-3 leading-tight">
           {title}
         </h3>
-        <p className="text-gray-600 mb-4 leading-relaxed text-xs text-justify2 line-clamp-2">
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-xs text-justify2 line-clamp-2">
           {excerpt}
         </p>
         <div className="flex items-center justify-between text-xs text-gray-500">

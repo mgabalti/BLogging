@@ -80,9 +80,9 @@ const AlsoInNewsSection = () => {
     const bottomRowItems = regularItems.slice(3);
 
     return (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white dark:bg-gray-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-playfair font-bold text-gray-900 mb-12 border-b-2 border-gray-200 pb-4">
+                <h2 className="text-3xl font-playfair font-bold text-gray-900 mb-12 border-b dark:text-white border-gray-200 dark:border-gray-700 pb-4">
                     ALSO IN NEWS
                 </h2>
 
@@ -100,13 +100,13 @@ const AlsoInNewsSection = () => {
                                         />
                                     </div>
                                     <div className="w-1/2">
-                                        <h3 className="text-2xl md:text-3xl font-playfair font-bold text-gray-900 mb-4 leading-tight group-hover:text-primary transition-colors">
+                                        <h3 className="text-2xl md:text-3xl font-playfair font-bold text-gray-900 dark:text-white mb-4 leading-tight group-hover:text-primary dark:group-hover:text-gray-300 transition-colors">
                                             {featuredItem.title}
                                         </h3>
-                                        <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                                        <p className="text-gray-600 mb-4 text-sm leading-relaxed dark:text-gray-300">
                                             {featuredItem.excerpt}
                                         </p>
-                                        <div className="flex items-center space-x-2 text-xs text-gray-500">
+                                        <div className="flex items-center space-x-2 text-xs text-gray-500  dark:text-gray-400">
                                             <Clock className="w-4 h-4" />
                                             <span>{featuredItem.timeAgo}</span>
                                             <span>|</span>
@@ -127,13 +127,13 @@ const AlsoInNewsSection = () => {
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                                 />
                                             </div>
-                                            <h4 className="text-base font-playfair font-semibold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors">
+                                            <h4 className="text-base font-playfair font-semibold text-gray-900 mb-2 leading-tight group-hover:text-primary dark:group-hover:text-gray-300 dark:text-white transition-colors">
                                                 {item.title}
                                             </h4>
-                                            <p className="text-xs text-gray-600 mb-2 line-clamp-2">
+                                            <p className="text-xs text-gray-600 mb-2 line-clamp-2   dark:text-gray-300 ">
                                                 {item.excerpt}
                                             </p>
-                                            <div className="flex items-center space-x-2 text-xs text-gray-500">
+                                            <div className="flex items-center space-x-2 text-xs text-gray-500 dark:text-gray-400">
                                                 <small className='flex items-center gap-3'>
                                                     <span className="flex items-center gap-1">
                                                         <Clock className="w-3 h-3" />
@@ -164,13 +164,13 @@ const AlsoInNewsSection = () => {
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>
-                                    <h4 className="text-lg font-playfair font-semibold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors">
+                                    <h4 className="text-lg font-playfair font-semibold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors  dark:group-hover:text-gray-300 dark:text-white ">
                                         {item.title}
                                     </h4>
-                                    <p className="text-xs text-gray-600 mb-2 line-clamp-2">
+                                    <p className="text-xs text-gray-600 mb-2 line-clamp-2  dark:group-hover:text-gray-300 dark:text-gray-300 ">
                                         {item.excerpt}
                                     </p>
-                                    <div className="flex items-center space-x-2 text-xs text-gray-500">
+                                    <div className="flex items-center space-x-2 text-xs text-gray-500  dark:group-hover:text-gray-400 dark:text-gray-400 ">
                                         <small className='flex items-center gap-3'>
                                             <span className="flex items-center gap-1">
                                                 <Clock className="w-3 h-3" />
@@ -187,13 +187,13 @@ const AlsoInNewsSection = () => {
                             <Link key={index} href={item.slug || '/article'} className='mt-4 block'>
                                 <article className="group cursor-pointer">
 
-                                    <h4 className="text-lg font-playfair font-semibold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors">
+                                    <h4 className="text-lg font-playfair font-semibold text-gray-900 mb-2 leading-tight group-hover:text-primary transition-colors  dark:group-hover:text-gray-300 dark:text-white ">
                                         {item.title}
-                                    </h4>
-                                    <p className="text-xs text-gray-600 mb-2 line-clamp-2">
+                                    </h4> 
+                                    <p className="text-xs text-gray-600 mb-2 line-clamp-2  dark:group-hover:text-gray-300 dark:text-gray-300 ">
                                         {item.excerpt}
                                     </p>
-                                    <div className="flex items-center space-x-2 text-xs text-gray-400">
+                                    <div className="flex items-center space-x-2 text-xs text-gray-400  dark:text-gray-400 ">
                                         <small className='flex items-center gap-3'>
                                             <span className="flex items-center gap-1">
                                                 <Clock className="w-3 h-3" />

@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { 
-  faPlus, 
-  faEye, 
-  faEdit, 
-  faTrash, 
-  faCalendar, 
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import {
+  faPlus,
+  faEye,
+  faEdit,
+  faTrash,
+  faCalendar,
   faUser,
   faSpinner,
   faRefresh
@@ -16,7 +17,8 @@ import Link from 'next/link';
 import { useAdminBlogPosts } from '@/features/blog/useAdminBlogPosts';
 import { PostSummaryDto, TagDto } from '@/services/api';
 import toast from 'react-hot-toast';
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import { IconButton } from '@mui/material';
 export default function BlogPage() {
   const [filter, setFilter] = useState('all');
   const {
@@ -33,13 +35,13 @@ export default function BlogPage() {
     refreshPosts,
   } = useAdminBlogPosts();
 
-  const filteredPosts = filter === 'all' 
-    ? posts 
+  const filteredPosts = filter === 'all'
+    ? posts
     : posts.filter((post: PostSummaryDto) => {
-        if (filter === 'published') return post.isPublished;
-        if (filter === 'draft') return !post.isPublished;
-        return true;
-      });
+      if (filter === 'published') return post.isPublished;
+      if (filter === 'draft') return !post.isPublished;
+      return true;
+    });
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -81,11 +83,10 @@ export default function BlogPage() {
 
   const getStatusBadge = (isPublished: boolean) => {
     return (
-      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-        isPublished 
-          ? 'bg-green-100 text-green-800' 
-          : 'bg-yellow-100 text-yellow-800'
-      }`}>
+      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${isPublished
+          ? 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100'
+          : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-800 dark:text-yellow-200'
+        }`}>
         {isPublished ? 'published' : 'draft'}
       </span>
     );
@@ -96,7 +97,7 @@ export default function BlogPage() {
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">My Blog</h1>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">My Blog</h1>
             <p className="text-gray-600 mt-1">Manage your blog posts and create new content.</p>
           </div>
           <Link
@@ -107,7 +108,7 @@ export default function BlogPage() {
             Add New Blog
           </Link>
         </div>
-        
+
         <div className="bg-red-50 border border-red-200 rounded-lg p-6">
           <div className="flex items-center">
             <div className="flex-shrink-0">
@@ -135,8 +136,8 @@ export default function BlogPage() {
       {/* Header with Add New Blog Button */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">My Blog</h1>
-          <p className="text-gray-600 mt-1">Manage your blog posts and create new content.</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">My Blog</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">Manage your blog posts and create new content.</p>
         </div>
         <div className="mt-4 sm:mt-0 flex space-x-3">
           <button
@@ -158,8 +159,8 @@ export default function BlogPage() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-        <div className="px-6 py-4 border-b border-gray-200">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200  dark:border-gray-600">
+        <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-600">
           <div className="flex space-x-8">
             {[
               { key: 'all', label: 'All Posts', count: totalCount },
@@ -169,11 +170,10 @@ export default function BlogPage() {
               <button
                 key={tab.key}
                 onClick={() => setFilter(tab.key)}
-                className={`flex items-center space-x-2 px-1 py-2 text-sm font-medium border-b-2 transition-colors ${
-                  filter === tab.key
+                className={`flex items-center space-x-2 px-1 py-2 text-sm font-medium border-b-2 transition-colors ${filter === tab.key
                     ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
+                    : 'border-transparent text-gray-500 dark:text-white hover:text-gray-700 hover:border-gray-300'
+                  }`}
               >
                 <span>{tab.label}</span>
                 <span className="bg-gray-100 text-gray-900 py-0.5 px-2 rounded-full text-xs">
@@ -185,7 +185,7 @@ export default function BlogPage() {
         </div>
 
         {/* Blog Posts List */}
-        <div className="divide-y divide-gray-200">
+        <div className="divide-y divide-gray-200 dark:divide-gray-700">
           {loading ? (
             <div className="px-6 py-12 text-center">
               <FontAwesomeIcon icon={faSpinner} className="h-8 w-8 text-blue-600 animate-spin mx-auto mb-4" />
@@ -204,23 +204,23 @@ export default function BlogPage() {
             </div>
           ) : (
             filteredPosts.map((post: PostSummaryDto) => (
-              <div key={post.id} className="px-6 py-6 hover:bg-gray-50 transition-colors">
+              <div key={post.id} className="px-6 py-6 dark:hover:bg-gray-900 hover:bg-gray-100 transition-colors">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-2">
-                      <h3 className="text-lg font-medium text-gray-900">{post.title}</h3>
+                      <h3 className="text-lg font-medium text-gray-900 dark:text-white">{post.title}</h3>
                       {getStatusBadge(post.isPublished)}
-                      <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                      <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded dark:bg-gray-700 dark:text-gray-100">
                         {post.category?.name || 'Uncategorized'}
                       </span>
                     </div>
-                    <p className="text-gray-600 mb-3">{post.contentPreview}</p>
+                    <p className="text-gray-600 dark:text-gray-400 mb-3">{post.contentPreview}</p>
                     <div className="flex items-center space-x-6 text-sm text-gray-500">
-                      <span className="flex items-center">
+                      <span className="flex items-center dark:text-gray-400">
                         <FontAwesomeIcon icon={faUser} className="h-4 w-4 mr-1" />
                         {post.authorName}
                       </span>
-                      <span className="flex items-center">
+                      <span className="flex items-center  dark:text-gray-400">
                         <FontAwesomeIcon icon={faCalendar} className="h-4 w-4 mr-1" />
                         {formatDate(post.createdAt)}
                       </span>
@@ -239,33 +239,28 @@ export default function BlogPage() {
                       className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
                       title="View post"
                     >
-                      <FontAwesomeIcon icon={faEye} className="h-4 w-4" />
                     </Link>
-                    <Link
+                    <IconButton
                       href={`/dashboard/blog/${post.id}/edit`}
                       className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-md transition-colors"
                       title="Edit post"
                     >
-                      <FontAwesomeIcon icon={faEdit} className="h-4 w-4" />
-                    </Link>
-                    <button
+                      <FontAwesomeIcon icon={faEdit} className="h-4 w-4 dark:text-white" />
+                    </IconButton>
+                    <IconButton
                       onClick={() => handleTogglePublish(post.id, post.isPublished)}
-                      className={`p-2 rounded-md transition-colors ${
-                        post.isPublished
+                      className={`p-2 rounded-md transition-colors ${post.isPublished
                           ? 'text-green-400 hover:text-green-600 hover:bg-green-50'
                           : 'text-yellow-400 hover:text-yellow-600 hover:bg-yellow-50'
-                      }`}
+                        }`}
                       title={post.isPublished ? 'Unpublish post' : 'Publish post'}
                     >
-                      <FontAwesomeIcon icon={faEye} className="h-4 w-4" />
-                    </button>
-                    <button
-                      onClick={() => handleDeletePost(post.id)}
-                      className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors"
-                      title="Delete post"
-                    >
-                      <FontAwesomeIcon icon={faTrash} className="h-4 w-4" />
-                    </button>
+                      <VisibilityIcon className="h-4 w-4" />
+                    </IconButton>
+                
+                    <IconButton aria-label="delete"  onClick={() => handleDeletePost(post.id)}>
+                      <DeleteIcon />
+                    </IconButton>
                   </div>
                 </div>
               </div>

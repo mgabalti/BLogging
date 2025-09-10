@@ -30,7 +30,7 @@ const AuthorBio = ({ author = {
   };
 
   return (
-    <div className="border-t border-gray-200 pt-8 mt-12">
+    <div className="border-t border-gray-200 dark:border-gray-700 pt-8 mt-12">
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center space-x-4">
                         <div
@@ -38,14 +38,14 @@ const AuthorBio = ({ author = {
                 style={{ backgroundImage: author?.avatar ? `url(${author.avatar})` : undefined }}
               ></div>
           <div>
-                          <h4 className="font-semibold text-gray-900">{author?.name || 'Unknown Author'}</h4>
-                          <p className="text-gray-600">{author?.bio || 'No bio available'}</p>
+                          <h4 className="font-semibold text-gray-900 dark:text-white">{author?.name || 'Unknown Author'}</h4>
+                          <p className="text-gray-600 dark:text-gray-300">{author?.bio || 'No bio available'}</p>
             <button
               onClick={toggleFollow}
               className={`mt-2 font-medium flex items-center space-x-1 transition-colors ${
                 isFollowing 
                   ? 'text-gray-600 hover:text-gray-800' 
-                  : 'text-primary hover:text-primary/80'
+                  : 'text-primary hover:text-primary/80 dark:text-gray-400'
               }`}
             >
               <span>{isFollowing ? 'Following' : 'Follow'}</span>

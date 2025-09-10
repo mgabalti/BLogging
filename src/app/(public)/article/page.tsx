@@ -9,6 +9,8 @@ import SocialShare from '@/components/SocialShare';
 import ArticleHero from '@/components/ArticleHero';
 import AuthorBio from '@/components/AuthorBio';
 import RelatedArticles from '@/components/RelatedArticles';
+import { IconButton } from '@mui/material';
+import XIcon from '@mui/icons-material/X';
 
 export default function ArticlePage() {
   const [isLiked, setIsLiked] = useState(false);
@@ -59,40 +61,43 @@ export default function ArticlePage() {
   };
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 dark:bg-gray-900">
       <ReadingProgress />
       
       <BackButton />
 
       {/* Social Share Sidebar */}
       <div style={{width: '45px'}} className="social-share  hidden lg:flex flex-col space-y-3 fixed left-5 top-1/2 transform -translate-y-1/2 z-40">
-        <button
+        <IconButton
           onClick={() => handleShare('twitter')}
-          className="bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+                  className="bg-white w-12 h-12 flex items-cente justify-center dark:bg-gray-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+
         >
-          <Twitter className="w-5 h-5 text-gray-600 group-hover:text-blue-500" />
-        </button>
-        <button
+        <XIcon style={{width:'19px'}} className="w-5 h-5 text-gray-600  dark:group-hover:text-blue-300 dark:text-white  group-hover:text-blue-500" />
+        </IconButton>
+        <IconButton
           onClick={() => handleShare('facebook')}
-          className="bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+        className="bg-white w-12 h-12 flex items-cente justify-center dark:bg-gray-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
         >
-          <Facebook className="w-5 h-5 text-gray-600 group-hover:text-blue-600" />
-        </button>
-        <button
+        <Facebook style={{width:'19px'}} className="=  dark:group-hover:text-blue-300 dark:text-white text-gray-600 group-hover:text-blue-600" />
+        </IconButton>
+        <IconButton
           onClick={() => handleShare('linkedin')}
-          className="bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+                  className="bg-white w-12 h-12 flex items-cente justify-center dark:bg-gray-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+
         >
-          <Linkedin className="w-5 h-5 text-gray-600 group-hover:text-blue-700" />
-        </button>
-        <button
+        <Linkedin style={{width:'19px'}} className=" dark:group-hover:text-blue-300 dark:text-white text-gray-600 group-hover:text-blue-700" />
+        </IconButton>
+        <IconButton
           onClick={handleBookmark}
-          className="bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+                  className="bg-white w-12 h-12 flex items-cente justify-center dark:bg-gray-700 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+
         >
-          <Bookmark className={`w-5 h-5 ${isBookmarked ? 'text-primary fill-current' : 'text-gray-600'} group-hover:text-primary`} />
-        </button>
+        <Bookmark style={{width:'19px'}} className={`  dark:group-hover:text-blue-300 dark:text-white transition-colors ${isBookmarked ? 'text-primary fill-current' : 'text-gray-600 group-hover:text-primary'}`} />
+        </IconButton>
       </div>
 
-      <article className="bg-white">
+      <article className="bg-white dark:bg-gray-900">
         <ArticleHero
           title="NASA's Mars Rover Discovers Organic Compounds That Could Signal Ancient Life"
           category="Science"
@@ -109,7 +114,7 @@ export default function ArticlePage() {
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-gray-700 leading-relaxed mb-8 font-medium">
+            <p className="text-xl text-gray-700 dark:text-white leading-relaxed mb-8 font-medium">
               In a groundbreaking discovery that could reshape our understanding
               of life beyond Earth, NASA's Perseverance rover has detected complex
               organic compounds in Martian rock samples, providing the strongest
@@ -117,7 +122,7 @@ export default function ArticlePage() {
               life.
             </p>
 
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-gray-700 dark:text-white leading-relaxed mb-6">
               The discovery, announced today at a press conference at NASA's Jet
               Propulsion Laboratory in Pasadena, California, represents a
               culmination of nearly three years of meticulous exploration and
@@ -126,17 +131,17 @@ export default function ArticlePage() {
               previously detected on Mars.
             </p>
 
-            <div className="pull-quote my-8 border-l-4 border-primary pl-6 italic text-xl text-gray-700">
+            <div className="pull-quote my-8 border-l-4 dark:text-gray-400 border-primary pl-6 italic text-xl text-gray-700">
               "This is not just another detection of organic compounds on Mars.
               The complexity and variety of these molecules suggest they could be
               the remnants of ancient biological processes."
             </div>
 
-            <h2 className="text-3xl font-playfair font-bold text-gray-900 mt-12 mb-6">
+            <h2 className="text-3xl font-playfair font-bold text-gray-900 dark:text-white mt-12 mb-6">
               The Significance of Organic Compounds
             </h2>
 
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-gray-700 leading-relaxed mb-6 dark:text-white ">
               Organic compounds are molecules that contain carbon and are
               considered the building blocks of life as we know it. While their
               presence doesn't definitively prove the existence of past life, it
@@ -144,17 +149,17 @@ export default function ArticlePage() {
               potential habitability billions of years ago.
             </p>
 
-            <div className="bg-gray-50 rounded-lg p-8 my-8">
+            <div className="bg-gray-50 rounded-lg dark:bg-gray-800 p-8 my-8">
               <div className="flex items-start space-x-4">
                 <div
-                  className="w-16 h-16 bg-cover bg-center rounded-full flex-shrink-0"
+                  className="w-16 h-16 bg-cover mt-8 bg-center rounded-full flex-shrink-0"
                   style={{ backgroundImage: "url('https://readdy.ai/api/search-image?query=NASA%20scientist%20in%20mission%20control%20room%20analyzing%20Mars%20data%20on%20multiple%20computer%20screens%2C%20professional%20space%20agency%20environment%2C%20technical%20equipment%20and%20displays&width=100&height=100&seq=expert001&orientation=squarish')" }}
                 ></div>
                 <div className="flex-1">
-                  <h4 className="font-semibold text-gray-900 mb-2">
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
                     Dr. Sarah Chen, Lead Astrobiologist
                   </h4>
-                  <p className="text-gray-700 italic">
+                  <p className="text-gray-700 italic dark:text-gray-400">
                     "The diversity of organic molecules we've found is remarkable.
                     We're seeing aromatic compounds, aliphatic chains, and even
                     some sulfur-bearing organics that could indicate biological
@@ -171,17 +176,17 @@ export default function ArticlePage() {
                 alt="Mars rock sample analysis"
                 className="w-full rounded-lg shadow-lg"
               />
-              <p className="text-sm text-gray-500 mt-3 text-center">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 text-center">
                 Spectroscopic analysis reveals complex organic compounds within
                 Martian rock samples collected by Perseverance rover
               </p>
             </div>
 
-            <h2 className="text-3xl font-playfair font-bold text-gray-900 mt-12 mb-6">
+            <h2 className="text-3xl font-playfair font-bold text-gray-900 dark:text-white mt-12 mb-6">
               Revolutionary Detection Methods
             </h2>
 
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-gray-700 leading-relaxed mb-6 dark:text-gray-300">
               The breakthrough came through the use of Perseverance's advanced
               SHERLOC (Scanning Habitable Environments with Raman & Luminescence
               for Organics & Chemicals) instrument, which uses ultraviolet laser
@@ -190,7 +195,7 @@ export default function ArticlePage() {
               materials without destroying the samples.
             </p>
 
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-gray-700 leading-relaxed mb-6 dark:text-gray-300">
               What makes this discovery particularly exciting is the location
               where these compounds were found. Jezero Crater was once a lake bed,
               fed by rivers that carried sediments rich in minerals and
@@ -200,17 +205,17 @@ export default function ArticlePage() {
               that characterize Mars' surface today.
             </p>
 
-            <div className="expert-quote rounded-lg p-6 my-8 bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 border-secondary">
+            <div className="expert-quote rounded-lg p-6 my-8 dark:from-gray-800 dark:to-gray-700  bg-gradient-to-br from-gray-50 to-gray-100 border-l-4 dark:border-gray-700 border-secondary">
               <div className="flex items-start space-x-4">
                 <div
                   className="w-16 h-16 bg-cover bg-center rounded-full flex-shrink-0"
                   style={{ backgroundImage: "url('https://readdy.ai/api/search-image?query=senior%20NASA%20mission%20director%20in%20professional%20suit%20standing%20in%20front%20of%20Mars%20mission%20displays%2C%20confident%20leadership%20pose%2C%20space%20agency%20headquarters%20background&width=100&height=100&seq=expert002&orientation=squarish')" }}
                 ></div>
                 <div className="flex-1">
-                  <h4 className="font-semibold text-gray-900 mb-2">
+                  <h4 className="font-semibold text-gray-900 mb-2 dark:text-white">
                     Dr. Michael Rodriguez, Mars Sample Return Mission Director
                   </h4>
-                  <p className="text-gray-700">
+                  <p className="text-gray-700 dark:text-gray-300">
                     "These findings validate our decision to target Jezero Crater.
                     The ancient lake environment provided ideal conditions for
                     preserving organic materials that could tell us about Mars'
@@ -222,11 +227,11 @@ export default function ArticlePage() {
               </div>
             </div>
 
-            <h2 className="text-3xl font-playfair font-bold text-gray-900 mt-12 mb-6">
+            <h2 className="text-3xl font-playfair font-bold text-gray-900 mt-12 mb-6 dark:text-white">
               Implications for Future Exploration
             </h2>
 
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-gray-700 leading-relaxed mb-6 dark:text-gray-300">
               The discovery has profound implications for NASA's Mars Sample
               Return mission, scheduled to launch in the late 2020s. The mission
               will bring Martian rock samples back to Earth for detailed analysis
@@ -241,13 +246,13 @@ export default function ArticlePage() {
                 alt="Mars Sample Return Mission concept"
                 className="w-full rounded-lg shadow-lg"
               />
-              <p className="text-sm text-gray-500 mt-3 text-center">
+              <p className="text-sm text-gray-500 mt-3 text-center dark:text-gray-400">
                 Artist's concept of the Mars Sample Return mission that will bring
                 Perseverance's samples back to Earth for detailed analysis
               </p>
             </div>
 
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-gray-700 leading-relaxed mb-6 dark:text-gray-300">
               The complexity of the organic molecules detected suggests that if
               life did exist on ancient Mars, it may have been more sophisticated
               than simple microbes. Some of the compounds identified are similar
@@ -255,17 +260,17 @@ export default function ArticlePage() {
               in extreme environments.
             </p>
 
-            <div className="pull-quote my-8 border-l-4 border-primary pl-6 italic text-xl text-gray-700">
+            <div className="pull-quote my-8 border-l-4 border-primary dark:border-gray-200 pl-6 italic text-xl text-gray-700 dark:text-gray-200">
               "We're not just looking for signs that life could have existed on
               Mars – we're finding evidence that suggests it may have been
               thriving in ways we're only beginning to understand."
             </div>
 
-            <h2 className="text-3xl font-playfair font-bold text-gray-900 mt-12 mb-6">
+            <h2 className="text-3xl font-playfair font-bold text-gray-900 mt-12 mb-6 dark:text-white">
               The Search Continues
             </h2>
 
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-gray-700 leading-relaxed mb-6 dark:text-gray-300">
               While this discovery represents a major milestone in astrobiology,
               scientists emphasize that definitive proof of past life on Mars will
               require additional evidence. The organic compounds could potentially
@@ -273,7 +278,7 @@ export default function ArticlePage() {
               delivered to Mars by meteorites.
             </p>
 
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-gray-700 leading-relaxed mb-6 dark:text-gray-300">
               However, the combination of complex organic molecules, their
               location in ancient lake sediments, and the presence of minerals
               that form in water-rich environments creates a compelling case for
@@ -283,31 +288,31 @@ export default function ArticlePage() {
               ancient life.
             </p>
 
-            <div className="bg-primary bg-opacity-5 rounded-lg p-8 my-12">
-              <h3 className="text-2xl font-playfair font-bold text-gray-900 mb-4">
+            <div className="bg-primary dark:bg-gray-800 bg-opacity-5 rounded-lg p-8 my-12">
+              <h3 className="text-2xl font-playfair font-bold text-gray-900 dark:text-white mb-4">
                 Key Findings Summary
               </h3>
-              <ul className="space-y-3 text-gray-700">
+              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-primary  dark:bg-gray-300 rounded-full mt-2 flex-shrink-0"></div>
                   <span>Complex organic compounds detected in multiple rock samples from Jezero Crater</span>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-primary  dark:bg-gray-300 rounded-full mt-2 flex-shrink-0"></div>
                   <span>Molecules include aromatic and aliphatic compounds similar to those produced by Earth microbes</span>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-primary  dark:bg-gray-300 rounded-full mt-2 flex-shrink-0"></div>
                   <span>Preservation in ancient lake sediments suggests protected environment</span>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-primary  dark:bg-gray-300 rounded-full mt-2 flex-shrink-0"></div>
                   <span>Findings support targeting of samples for Mars Sample Return mission</span>
                 </li>
               </ul>
             </div>
 
-            <p className="text-gray-700 leading-relaxed mb-8">
+            <p className="text-gray-700 leading-relaxed mb-8 dark:text-gray-300">
               As humanity continues its quest to answer one of the most profound
               questions in science – are we alone in the universe? – this
               discovery brings us one step closer to understanding our place in
@@ -335,7 +340,7 @@ export default function ArticlePage() {
       {/* Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`back-to-top bg-primary text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 fixed bottom-8 right-8 z-50 ${
+        className={`back-to-top bg-primary text-white  p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 fixed bottom-8 right-8 z-50 ${
           showBackToTop ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
       >
